@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>RecipeSharing</display-name>
+  <description>
+      RecipeSharing
+    </description>
+  <servlet>
+    <servlet-name>controller</servlet-name>
+    <servlet-class>
+        	controller.Controller
+        </servlet-class>
+    <init-param>
+      <param-name>jdbcDriverName</param-name>
+      <param-value>  com.mysql.jdbc.Driver  </param-value>
+    </init-param>
+    <init-param>
+      <param-name>jdbcURL</param-name>
+      <param-value>  jdbc:mysql:///webapp     </param-value>
+    </init-param>
+  </servlet>
+  
+  <servlet>
+        <servlet-name>
+	recipeimage-servlet</servlet-name>
+        <servlet-class>  view.RecipeImageServlet        </servlet-class>
+  </servlet>
+  <servlet>
+        <servlet-name>
+	stepimage-servlet</servlet-name>
+        <servlet-class>  view.StepImageServlet        </servlet-class>
+  </servlet>
+  <servlet>
+        <servlet-name>
+	userimage-servlet</servlet-name>
+        <servlet-class>  view.UserImageServlet        </servlet-class>
+  </servlet>
+
+    <servlet-mapping>
+        <servlet-name>   controller         </servlet-name>
+        <url-pattern>    *.do                     </url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>   recipeimage-servlet            </servlet-name>
+        <url-pattern>    /recipeimage                   </url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>   stepimage-servlet            </servlet-name>
+        <url-pattern>    /stepimage                   </url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>   userimage-servlet            </servlet-name>
+        <url-pattern>    /userimage                   </url-pattern>
+    </servlet-mapping>
+    
+     <welcome-file-list>
+        <welcome-file>   index.do                  </welcome-file>
+    </welcome-file-list>
+</web-app>
